@@ -113,7 +113,6 @@ class BurgerBuilder extends Component {
   }
 
   render() {
-    console.log(this.state.totalPrice);
     const disabledInfo = {
       ...this.state.ingredients
     };

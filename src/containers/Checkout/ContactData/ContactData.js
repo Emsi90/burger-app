@@ -47,6 +47,7 @@ class ContactData extends Component {
   }
 
   render () {
+    console.log(this.props.ingredients);
     let form = (
       <form action="">
         <input className={classes.Input} type="text" name="name" placeholder="Your Name" />

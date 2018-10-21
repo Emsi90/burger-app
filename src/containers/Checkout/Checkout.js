@@ -15,7 +15,7 @@ class Chcekout extends Component {
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
     let price = 0;
-    console.log(query)
+    // console.log(query);
     for (let param of query.entries()) {
       // ['salad', '1']
       if(param[0] === 'price') {
@@ -45,7 +45,7 @@ class Chcekout extends Component {
           <Route 
             path={this.props.match.path + '/contact-data'}
             render={(props) => (<ContactData 
-            ingredients={this.props.ingredients} 
+            ingredients={this.state.ingredients} 
             price={this.state.totalPrice} 
             {...props}
             />)}/>
