@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -91,7 +92,7 @@ class ContactData extends Component {
         },
         valid: true,
         validation: {},
-        value: ''
+        value: 'fastest'
       }
     },
     formIsValid: false,
@@ -106,7 +107,7 @@ class ContactData extends Component {
       formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
     }
     const order = {
-      ingredients: this.props.ingredients,
+      ingredients: this.props.ings,
       price: this.props.price,
       orderData: formData
     }
@@ -168,7 +169,7 @@ class ContactData extends Component {
   }
 
   render () {
-    console.log(this.props.ingredients);
+    console.log(this.props.ings);
 
     const formElementsArray = [];
     for(let key in this.state.orderForm) {
@@ -209,5 +210,11 @@ class ContactData extends Component {
   }
 }
 
+const mapToPropsState = state => {
+  return {
+    ings: state.ingredients,
+    price: state.totalPrice
+  }
+}
 
-export default ContactData;
+export default connect(mapToPropsState)(ContactData);
