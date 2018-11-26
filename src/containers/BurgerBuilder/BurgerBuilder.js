@@ -11,7 +11,7 @@ import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
 
   //Można dodawać state za pomoca kontruktora
   // constructor(props) {
@@ -177,7 +177,8 @@ const mapToDispatchState = dispatch => {
   return {
     onIngredientAdded: (ingName) => dispatch(actions.addIngredients(ingName)),
     onIngredientRemoved: (ingName) => dispatch(actions.removeIngredients(ingName)),
-    onInitIngredients: () => dispatch(actions.initIngredients()),onInitPurchase: () => dispatch(actions.purchaseInit()),
+    onInitIngredients: () => dispatch(actions.initIngredients()),
+    onInitPurchase: () => dispatch(actions.purchaseInit()),
     onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path))
   }
 }
